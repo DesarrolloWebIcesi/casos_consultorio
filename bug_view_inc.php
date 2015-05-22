@@ -45,7 +45,20 @@
 
 	bug_ensure_exists( $f_bug_id );
            
-       
+        //////////////////////////////////////
+        /*
+         *Nombre: Andres Felipe Hinojosa
++        *Fecha: 21/Mayo/2015
+         *Descripción:Cambio realizado para evitar que un usuario desarrollador consulte un caso cerrado
+         */
+        $t_access_level= current_user_get_access_level();
+	$tpl_bug = bug_get( $f_bug_id, true );
+         if($t_access_level==55 AND $tpl_bug->status==90){
+          
+           error_parameters( $f_bug_id );
+           trigger_error( ERROR_DESARROLLADOR_CERRADO, ERROR );
+        }
+        /////////////////////////////////////
 	# In case the current project is not the same project of the bug we are
 	# viewing, override the current project. This ensures all config_get and other
 	# per-project function calls use the project ID of this bug.

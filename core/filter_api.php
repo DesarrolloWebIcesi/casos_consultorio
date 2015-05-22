@@ -1002,8 +1002,22 @@ echo "<pre>";
 print_r($p_query_clauses);
 echo "</pre>";
 */
+         /////////////////////////////////////////////////
+        /*Nombre: Andres Felipe Hinojosa
++        *Fecha: 21/Mayo/2015
+         *Descripción:Se realizo cambio para poder que los desarrolladores no puedan ver casos cerrados
+         */
+     $t_access_level= current_user_get_access_level();
+    
+     if($t_access_level == 55){
+      array_push($p_query_clauses['where'], "( mantis_bug_table.status != ? )" );  
+      array_push($p_query_clauses['where_values'],90);
+     }
+        //////////////////////////////////////////////////
 	return $p_query_clauses;
 }
+
+	
 
 /**
      *  Remove any duplicate values in certain elements of query_clauses

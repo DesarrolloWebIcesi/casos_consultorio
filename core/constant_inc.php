@@ -548,3 +548,9 @@ define( 'SECONDS_PER_DAY', 86400 );
 define( 'CAPTCHA_KEY', 'captcha_key' );
 define( 'CAPTCHA_IMG', 'captcha_image' );
 
+/* 21-05-2015
+ * afhinojosa
+ * Se agrega las constantes de los errores en el momento en que un desarrollador desea
+ * consultar un caso cerrado.
+ */
+define( 'ERROR_DESARROLLADOR_CERRADO', 33);
